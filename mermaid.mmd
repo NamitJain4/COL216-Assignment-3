@@ -1,0 +1,57 @@
+---
+config:
+  layout: fixed
+---
+flowchart TB
+    A["Main Function"] -- Help Option --> B["print_help()"]
+    A -- Trace Parsing --> C["read_trace()"]
+    A -- Memory Access --> D["process_memory_access()"]
+    A -- Coherence --> E["mesi_snoop()"]
+    A -- Statistics --> F["print_stats()"]
+    D -- Read Operation --> G["read_from_line()"]
+    D -- Write Operation --> H["write_to_line()"]
+    D -- Cache Miss --> I["read_block()"]
+    D -- Writeback --> J["write_block()"]
+    E -- Snoop Bus --> K["mesi_snoop()"]
+    K -- Handle Requests --> L["Bus Transactions"]
+    G -- Fetch Data --> M["read_word()"]
+    H -- Store Data --> N["write_word()"]
+    I -- Lookup --> O["Memory Lookup"]
+    J -- Update --> P["Memory Update"]
+    F -- Generate Output --> Q["Output Statistics"]
+    Q -- Display --> R["Console/File Output"]
+    L1["Input & Initialization"]
+    L2["Cache Operations"]
+    L3["Coherence Mechanism"]
+    L4["Statistics & Output"]
+     L1:::legendPink
+     L1:::legendPink
+     L2:::legendBlue
+     L2:::legendBlue
+     L3:::legendYellow
+     L3:::legendYellow
+     L4:::legendGreen
+     L4:::legendGreen
+    classDef default font-family:Helvetica,font-size:15px,font-weight:500,rx:8,ry:8,padding:10px
+    classDef legendPink fill:#f8e8ff,stroke:#9370DB,stroke-width:1.5px,font-family:Helvetica,font-size:13px,font-weight:400,rx:6,ry:6,padding:5px,color:#444444
+    classDef legendBlue fill:#e6e6ff,stroke:#6495ED,stroke-width:1.5px,font-family:Helvetica,font-size:13px,font-weight:400,rx:6,ry:6,padding:5px,color:#444444
+    classDef legendYellow fill:#fff8e1,stroke:#FFD700,stroke-width:1.5px,font-family:Helvetica,font-size:13px,font-weight:400,rx:6,ry:6,padding:5px,color:#444444
+    classDef legendGreen fill:#e8f5e9,stroke:#66BB6A,stroke-width:1.5px,font-family:Helvetica,font-size:13px,font-weight:400,rx:6,ry:6,padding:5px,color:#444444
+    style A fill:#f8e8ff,stroke:#9370DB,stroke-width:1.5px,color:#333333
+    style B fill:#f8e8ff,stroke:#9370DB,stroke-width:1.5px,color:#333333
+    style C fill:#f8e8ff,stroke:#9370DB,stroke-width:1.5px,color:#333333
+    style D fill:#e6e6ff,stroke:#6495ED,stroke-width:1.5px,color:#333333
+    style E fill:#fff8e1,stroke:#FFD700,stroke-width:1.5px,color:#333333
+    style F fill:#e8f5e9,stroke:#66BB6A,stroke-width:1.5px,color:#333333
+    style G fill:#e6e6ff,stroke:#6495ED,stroke-width:1.5px,color:#333333
+    style H fill:#e6e6ff,stroke:#6495ED,stroke-width:1.5px,color:#333333
+    style I fill:#e6e6ff,stroke:#6495ED,stroke-width:1.5px,color:#333333
+    style J fill:#e6e6ff,stroke:#6495ED,stroke-width:1.5px,color:#333333
+    style K fill:#fff8e1,stroke:#FFD700,stroke-width:1.5px,color:#333333
+    style L fill:#fff8e1,stroke:#FFD700,stroke-width:1.5px,color:#333333
+    style M fill:#e6e6ff,stroke:#6495ED,stroke-width:1.5px,color:#333333
+    style N fill:#e6e6ff,stroke:#6495ED,stroke-width:1.5px,color:#333333
+    style O fill:#e6e6ff,stroke:#6495ED,stroke-width:1.5px,color:#333333
+    style P fill:#e6e6ff,stroke:#6495ED,stroke-width:1.5px,color:#333333
+    style Q fill:#e8f5e9,stroke:#66BB6A,stroke-width:1.5px,color:#333333
+    style R fill:#e8f5e9,stroke:#66BB6A,stroke-width:1.5px,color:#333333
